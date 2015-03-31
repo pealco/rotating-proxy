@@ -47,7 +47,7 @@ module Service
       Dir.mkdir("/var/run/tor") unless Dir.exists?("/var/run/tor")
       self.class.fire_and_forget(@exec,
         "--SocksPort #{@tor_port}",
-        "--NewCircuitPeriod 120",
+        "--NewCircuitPeriod 60",
         "--DataDirectory /var/lib/tor/#{@tor_port}",
         "--PidFile /var/run/tor/#{@tor_port}.pid",
         "--Log \"warn syslog\"",
